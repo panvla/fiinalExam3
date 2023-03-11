@@ -26,9 +26,12 @@ public class Sprint {
     }
 
     public void addTask(Task task){
-        this.tasks.add(task);
+        if(!tasks.contains(task)){
+            this.tasks.add(task);
+            this.addPoints(task.getPoints());
+        }
         task.setSprint(this);
-        this.addPoints(task.getPoints());
+
     }
 
     public void addPoints(Integer points){
